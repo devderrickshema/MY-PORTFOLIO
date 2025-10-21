@@ -10,7 +10,8 @@ export default function ContactPage() {
     from_name: '',
     reply_to: '',
     subject: '',
-    message: ''
+    message: '',
+    to_name: 'Derrick' // Adding recipient name for email template
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -35,26 +36,82 @@ export default function ContactPage() {
     emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_USER_ID || "");
     
     if (formRef.current) {
-      emailjs.sendForm(
+      // Get current date and time
+      const now = new Date();
+      const formattedDate = now.toLocaleDateString('en-US', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+      
+      const formattedTime = now.toLocaleTimeString('en-US', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+      });
+
+      // Create custom parameters for the notification email to portfolio owner
+      const notificationParams = {
+        to_name: "Derrick Shema",
+        from_name: formData.from_name,
+        reply_to: formData.reply_to,
+        subject: formData.subject,
+        message: formData.message,
+        email_subject: `New Contact Form Message: ${formData.subject}`,
+        notification_intro: `You have received a new message from ${formData.from_name} (${formData.reply_to}):`,
+        timestamp: `Message received on ${formattedDate} at ${formattedTime}`
+      };
+
+      // Send notification email to portfolio owner with custom parameters
+      emailjs.send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
-        formRef.current
+        notificationParams
       )
         .then((result) => {
-          console.log('Email sent successfully:', result.text);
-          setIsLoading(false);
-          setIsSubmitted(true);
+          console.log('Email sent to owner successfully:', result.text);
           
-          // Reset form after showing success message
-          setTimeout(() => {
-            setFormData({
-              from_name: '',
-              reply_to: '',
-              subject: '',
-              message: ''
-            });
-            setIsSubmitted(false);
-          }, 5000);
+          // Send confirmation email to the sender
+          const templateParams = {
+            to_name: formData.from_name,
+            from_name: 'Derrick Shema',
+            reply_to: 'shederrick03@gmail.com',
+            to_email: formData.reply_to,
+            subject: `Re: ${formData.subject}`,
+            message: `Thank you for reaching out to me. I've received your message regarding "${formData.subject}" and will get back to you as soon as possible.`,
+            sender_message: formData.message
+          };
+          
+          // Use a different template for confirmation emails if available
+          // Or you could create a custom function to send confirmation without a template
+          emailjs.send(
+            process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
+            process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "", // Ideally use a different template for confirmations
+            templateParams
+          )
+          .then((result) => {
+            console.log('Confirmation email sent successfully:', result.text);
+            setIsLoading(false);
+            setIsSubmitted(true);
+            
+            // Reset form after showing success message
+            setTimeout(() => {
+              setFormData({
+                from_name: '',
+                reply_to: '',
+                subject: '',
+                message: '',
+                to_name: 'Derrick'
+              });
+              setIsSubmitted(false);
+            }, 5000);
+          })
+          .catch((error) => {
+            console.error('Failed to send confirmation email:', error);
+            setIsLoading(false);
+            setIsSubmitted(true); // Still mark as submitted since main email was sent
+          });
         })
         .catch((error) => {
           console.error('Failed to send email:', error);
@@ -167,6 +224,8 @@ export default function ContactPage() {
                 </div>
               ) : (
                 <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+                  {/* Hidden field for recipient name */}
+                  <input type="hidden" name="to_name" value={formData.to_name} />
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
