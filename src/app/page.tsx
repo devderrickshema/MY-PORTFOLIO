@@ -39,10 +39,6 @@ export default function Home() {
     }
   }, [isDarkMode, isMounted]);
 
-  const toggleTheme = () => {
-    setIsDarkMode(prev => !prev);
-  };
-
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: 'smooth' });
@@ -82,7 +78,7 @@ export default function Home() {
           
           <div className="flex justify-center space-x-4 mb-12">
             <Link 
-              href="https://github.com/Denzo31" 
+              href="https://github.com/devderrickshema" 
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-700 dark:text-gray-300 hover:bg-emerald-100 dark:hover:bg-emerald-900/20 transition-colors duration-300 shadow-md hover:shadow-lg transform hover:scale-110"
@@ -106,16 +102,6 @@ export default function Home() {
             >
               <FiMail size={24} />
             </Link>
-          </div>
-          
-          {/* Theme Toggle Button */}
-          <div className="mb-6">
-            <button
-              onClick={toggleTheme}
-              className="px-4 py-2 bg-gray-200 dark:bg-gray-800 rounded-md transition-colors shadow-md hover:shadow-lg border border-transparent hover:border-emerald-300 dark:hover:border-emerald-700"
-            >
-              {isDarkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
-            </button>
           </div>
           
           <div className="flex flex-col sm:flex-row justify-center gap-4">
