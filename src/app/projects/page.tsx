@@ -39,9 +39,9 @@ const projects = [
     title: 'Expense Tracker System',
     description: 'A web-based expense tracker application that helps users manage their income, expenses, and budgets effectively, with features like user registration, transaction logging, and financial reports',
     technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
-    image: '/expense tracker.png',
+    image: '/expensetracker.png',
     demoLink: 'https://financetracking.page.gd/',
-    githubLink: 'https://github.com/Denzo31/Expense-Tracker-System'
+    githubLink: 'https://github.com/devderrckshema/Expense-Tracker-System'
   }
 ];
 
