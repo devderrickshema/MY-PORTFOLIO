@@ -14,6 +14,7 @@ const projects = [
     technologies: ['SpringBoot', 'Android Studio', 'Java', 'Firebase', 'Mobile UI/UX'],
     image: '/nozaubuvuzi.png',
     githubLink: 'https://gitlab.com/devderrickshema-group/devderrickshema-projects/noza-ubuvuzi',
+    demoLink: '#',
   },
   {
     id: 2,
@@ -85,7 +86,7 @@ export default function ProjectsPage() {
                       <FiGithub size={20} />
                     </Link>
                     <Link 
-                      href={projects[0].demoLink} 
+                      href={projects[0].demoLink ?? '#'} 
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
@@ -156,7 +157,7 @@ export default function ProjectsPage() {
                       <FiGithub size={18} />
                     </Link>
                     <Link 
-                      href={project.demoLink} 
+                      href={project.demoLink ?? '#'} 
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
