@@ -9,40 +9,31 @@ import { motion } from 'framer-motion';
 const projects = [
   {
     id: 1,
-    title: 'E-commerce Platform',
-    description: 'A full-featured e-commerce platform with product listings, cart functionality, payment processing, and user authentication.',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Stripe'],
-    image: '/ecommerce.png',
-    demoLink: 'https://example.com/demo1',
-    githubLink: 'https://github.com/username/project1'
+    title: 'NOZA UBUVUZI',
+    description: 'A healthcare-focused mobile application developed to improve communication between patients and healthcare institutions by allowing patients to provide feedback on healthcare services and patient experiences.',
+    technologies: ['SpringBoot', 'Android Studio', 'Java', 'Firebase', 'Mobile UI/UX'],
+    image: '/nozaubuvuzi.png',
+    githubLink: 'https://gitlab.com/devderrickshema-group/devderrickshema-projects/noza-ubuvuzi',
+    demoLink: '#',
   },
   {
     id: 2,
-    title: 'Task Management App',
-    description: 'A collaborative task management application with real-time updates, team assignment, and progress tracking.',
-    technologies: ['React', 'Firebase', 'Tailwind CSS', 'Redux'],
-    image: '/task management app image.png',
-    demoLink: 'https://example.com/demo2',
-    githubLink: 'https://github.com/username/project2'
+    title: 'Uber Fares Data Analysis',
+    description: 'A project exploring Uber fare trends, trip patterns, and customer behavior through statistical analysis and visualization dashboards.',
+    technologies: ['Python', 'DAX', 'Power BI', 'Pandas'],
+    image: '/uberfaresanalysis.jpeg',
+    githubLink: 'https://github.com/devderrickshema/uber-fares-analysis',
+    demoLink: '#',
   },
   {
     id: 3,
-    title: 'Weather Dashboard',
-    description: 'A responsive weather dashboard that displays current conditions and forecasts for multiple locations using weather API data.',
-    technologies: ['JavaScript', 'HTML/CSS', 'OpenWeather API'],
-    image: '/weather app image.png',
-    demoLink: 'https://example.com/demo3',
-    githubLink: 'https://github.com/username/project3'
+    title: 'Rwanda Trade Analysis Platform',
+    description: "A data analytics project focused on analyzing Rwanda's import/export trends, trade balances, and economic indicators through interactive dashboards and visualizations.",
+    technologies: ['Python', 'SQL', 'Pandas', 'Power BI'],
+    image: '/tradeanalysis.jpeg',
+    githubLink: 'https://github.com/Lambert-01/rwanda-trade-analysis-system',
+    demoLink: '#',
   },
-  {
-    id: 4,
-    title: 'Expense Tracker System',
-    description: 'A web-based expense tracker application that helps users manage their income, expenses, and budgets effectively, with features like user registration, transaction logging, and financial reports',
-    technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
-    image: '/expensetracker.png',
-    demoLink: 'https://financetracking.page.gd/',
-    githubLink: 'https://github.com/devderrckshema/Expense-Tracker-System'
-  }
 ];
 
 export default function ProjectsPage() {
@@ -87,8 +78,8 @@ export default function ProjectsPage() {
                     {projects[0].title}
                   </h2>
                   <div className="flex space-x-3">
-                    <Link 
-                      href={projects[0].githubLink} 
+                    <Link
+                      href={projects[0].githubLink}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
@@ -96,8 +87,8 @@ export default function ProjectsPage() {
                     >
                       <FiGithub size={20} />
                     </Link>
-                    <Link 
-                      href={projects[0].demoLink} 
+                    <Link
+                      href={projects[0].demoLink}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
@@ -120,14 +111,6 @@ export default function ProjectsPage() {
                     </span>
                   ))}
                 </div>
-                <div className="mt-4">
-                  <Link
-                    href="/register"
-                    className="inline-flex items-center px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg"
-                  >
-                    View Registration Demo
-                  </Link>
-                </div>
               </div>
             </div>
           </div>
@@ -146,7 +129,7 @@ export default function ProjectsPage() {
             >
               <div className="h-48 relative">
                 <Image
-                  src={project.image || `/project-placeholder-${index+2}.jpg`}
+                  src={project.image || `/project-placeholder-${index + 2}.jpg`}
                   alt={project.title}
                   fill
                   className="object-cover"
@@ -158,8 +141,8 @@ export default function ProjectsPage() {
                     {project.title}
                   </h3>
                   <div className="flex space-x-3">
-                    <Link 
-                      href={project.githubLink} 
+                    <Link
+                      href={project.githubLink}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
@@ -167,8 +150,8 @@ export default function ProjectsPage() {
                     >
                       <FiGithub size={18} />
                     </Link>
-                    <Link 
-                      href={project.demoLink} 
+                    <Link
+                      href={project.demoLink}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
@@ -200,25 +183,6 @@ export default function ProjectsPage() {
             </motion.div>
           ))}
         </div>
-        
-        {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-          className="text-center mt-16"
-        >
-          <p className="text-gray-700 dark:text-gray-300 mb-6">
-            Interested in seeing how I build a registration form? Check out my live demo:
-          </p>
-          <Link
-            href="/register"
-            className="inline-flex items-center px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg"
-          >
-            Go to Registration Form
-          </Link>
-        </motion.div>
       </div>
     </div>
   );
