@@ -9,40 +9,28 @@ import { motion } from 'framer-motion';
 const projects = [
   {
     id: 1,
-    title: 'E-commerce Platform',
-    description: 'A full-featured e-commerce platform with product listings, cart functionality, payment processing, and user authentication.',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Stripe'],
-    image: '/ecommerce.png',
-    demoLink: 'https://example.com/demo1',
-    githubLink: 'https://github.com/username/project1'
+    title: 'NOZA UBUVUZI ',
+    description: 'A healthcare-focused mobile application developed to improve communication between patients and healthcare institutions by allowing patients to provide feedback on healthcare services and patient experiences.',
+    technologies: ['SpringBoot', 'Android Studio', 'Java', 'Firebase', 'Mobile UI/UX'],
+    image: '/nozaubuvuzi.png',
+    githubLink: 'https://gitlab.com/devderrickshema-group/devderrickshema-projects/noza-ubuvuzi',
   },
   {
     id: 2,
-    title: 'Task Management App',
-    description: 'A collaborative task management application with real-time updates, team assignment, and progress tracking.',
-    technologies: ['React', 'Firebase', 'Tailwind CSS', 'Redux'],
-    image: '/task management app image.png',
-    demoLink: 'https://example.com/demo2',
-    githubLink: 'https://github.com/username/project2'
+    title: 'Uber Fares Data Analysis',
+    description: 'A project exploring Uber fare trends, trip patterns, and customer behavior through statistical analysis and visualization dashboards.',
+    technologies: ['Python', 'DAX', 'Power BI', 'Pandas'],
+    image: '/uberfaresanalysis.jpeg',
+    githubLink: 'https://github.com/devderrickshema/uber-fares-analysis'
   },
   {
     id: 3,
-    title: 'Weather Dashboard',
-    description: 'A responsive weather dashboard that displays current conditions and forecasts for multiple locations using weather API data.',
-    technologies: ['JavaScript', 'HTML/CSS', 'OpenWeather API'],
-    image: '/weather app image.png',
-    demoLink: 'https://example.com/demo3',
-    githubLink: 'https://github.com/username/project3'
+    title: 'Rwanda Trade Analysis Platform',
+    description: 'A data analytics project focused on analyzing Rwanda’s import/export trends, trade balances, and economic indicators through interactive dashboards and visualizations.',
+    technologies: ['Python', 'SQL', 'Pandas', 'Power BI'],
+    image: '/tradeanalysis.jpeg',
+    githubLink: 'https://github.com/Lambert-01/rwanda-trade-analysis-system'
   },
-  {
-    id: 4,
-    title: 'Expense Tracker System',
-    description: 'A web-based expense tracker application that helps users manage their income, expenses, and budgets effectively, with features like user registration, transaction logging, and financial reports',
-    technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
-    image: 'expense tracker.png',
-    demoLink: 'https://financetracking.page.gd/',
-    githubLink: 'https://github.com/devderrickshema/Expense-Tracker-System'
-  }
 ];
 
 export default function ProjectsPage() {
